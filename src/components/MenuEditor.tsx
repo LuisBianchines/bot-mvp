@@ -47,7 +47,15 @@ export default function MenuEditor() {
     if (!msg) {
       // opção inválida
       const linhas = data.opcoes.map(o => `${o.ordem} – ${cleanLabel(o.texto)}`)
-      return ['*Opção inválida. Tente novamente.*', '', '*Digite a opção desejada:*', *linhas, '', 'Para voltar a este menu, digite:', '*#menu*'].join('\n')
+      return [
+        '*Opção inválida. Tente novamente.*',
+        '',
+        '*Digite a opção desejada:*',
+        ...linhas,
+        '',
+        'Para voltar a este menu, digite:',
+        '*#menu*'
+      ].join('\n')
     }
     return msg
   }, [previewEntrada, data.opcoes, previewMenu])
